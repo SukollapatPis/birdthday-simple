@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สุขสันต์วันเกิดนะ! 🎉 | Happy Birthday</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500;700&family=Prompt:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Variables */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #fca5a5;
+            --bg-color: #fff5f5;
+            --thai-font: 'Prompt', sans-serif;
+        }
+
+        body {
+            font-family: 'Poppins', var(--thai-font);
+            background-color: var(--bg-color);
+            color: #333;
+            overflow-x: hidden;
+            /* ป้องกันการเลือกข้อความ (ส่วนหนึ่งของการป้องกันแบบพื้นฐาน) */
+            user-select: none; 
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand {
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section & Animations */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f0 0%, #ffe4e4 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            /* อนิเมชั่นลอยขึ้นลง */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Scroll Animations (Fade Up) */
+        .fade-up-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up-element.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cards & Gallery */
+        .memory-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .memory-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.2);
+        }
+        .memory-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Surprise Section */
+        .gift-box {
+            font-size: 6rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: inline-block;
+            animation: pulse-gift 2s infinite;
+        }
+        .gift-box:hover {
+            animation: none;
+            transform: rotate(10deg) scale(1.2);
+        }
+        @keyframes pulse-gift {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .thai-wish {
+            font-family: var(--thai-font);
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Music Player Sticky */
+        .music-player-sticky {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1050;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--secondary-color);
+        }
+        .music-icon { animation: spin 4s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        audio::-webkit-media-controls-panel { background-color: transparent; }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid #eee;
+            font-family: var(--thai-font);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="50" oncontextmenu="return false;">
+
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">HBD To You!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav" style="font-family: var(--thai-font);">
+                    <li class="nav-item"><a class="nav-link" href="#home">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#memories">ความทรงจำ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#wishes">คำอวยพร</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div style="position: absolute; top: 20%; left: 10%; font-size: 2rem; opacity: 0.5;">🎈</div>
+            <div style="position: absolute; bottom: 30%; right: 15%; font-size: 3rem; opacity: 0.5;">✨</div>
+
+            <span style="font-size: 4rem; display: block; margin-bottom: 10px;">🎂</span>
+            <h1 id="heroTitle">สุขสันต์วันเกิด!</h1>
+            <p class="lead mb-4" style="font-family: var(--thai-font);">ยินดีต้อนรับสู่พื้นที่พิเศษของคุณ</p>
+            <button class="btn btn-danger btn-lg rounded-pill px-5 py-3 shadow-sm" onclick="celebrate()" style="font-family: var(--thai-font); font-weight: 500;">
+                กดฉลองเลย! 🎊
+            </button>
+        </div>
+    </section>
+
+    <section id="memories" class="py-5">
+        <div class="container mt-5">
+            <h2 class="text-center mb-5 fade-up-element" style="font-family: 'Pacifico', cursive; color: var(--primary-color);">Precious Memories</h2>
+            <div class="row g-4">
+                <div class="col-md-4 fade-up-element">
+                    <div class="card memory-card h-100">
+                        <img src="https://source.unsplash.com/random/400x300?party" class="card-img-top" alt="Memory 1">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-family: var(--thai-font);">ช่วงเวลาดีๆ</h5>
+                            <p class="card-text" style="font-family: var(--thai-font);">ขอให้มีรอยยิ้มแบบนี้ตลอดไปนะ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-up-element" style="transition-delay: 0.2s;">
+                    <div class="card memory-card h-100">
+                        <img src="https://source.unsplash.com/random/400x300?cake" class="card-img-top" alt="Memory 2">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-family: var(--thai-font);">เค้กแสนอร่อย</h5>
+                            <p class="card-text" style="font-family: var(--thai-font);">เติมความหวานให้กับชีวิต</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 fade-up-element" style="transition-delay: 0.4s;">
+                    <div class="card memory-card h-100">
+                        <img src="https://source.unsplash.com/random/400x300?gift" class="card-img-top" alt="Memory 3">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-family: var(--thai-font);">ของขวัญสุดพิเศษ</h5>
+                            <p class="card-text" style="font-family: var(--thai-font);">คือการได้รู้จักเธอไง!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="wishes" class="py-5 bg-white">
+        <div class="container text-center mt-5 fade-up-element">
+            <h2 class="mb-4" style="font-family: 'Pacifico', cursive; color: var(--primary-color);">A Special Surprise</h2>
+            <p class="lead mb-4" style="font-family: var(--thai-font);">มีข้อความลับซ่อนอยู่ ลองกดที่กล่องของขวัญดูสิ!</p>
+            
+            <div class="gift-box my-4" onclick="openGift()" id="giftBox">
+                🎁
+            </div>
+
+            <div id="secretMessage" class="mt-4 p-5 rounded shadow-sm border border-danger d-none" style="background-color: #fff0f0; max-width: 700px; margin: 0 auto; position: relative;">
+                <span style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 3rem;">💖</span>
+                <h3 style="color: var(--primary-color); font-family: var(--thai-font); margin-top: 20px;">สุขสันต์วันเกิดนะครับ/ค่ะ!</h3>
+                
+                <div class="thai-wish mt-4">
+                    <p>ขอให้ปีนี้เป็นปีที่ยอดเยี่ยมสำหรับเธอ</p>
+                    <p>ขอให้มีความสุขมากๆ สุขภาพร่างกายแข็งแรง</p>
+                    <p>คิดหวังสิ่งใดก็ขอให้สมความปรารถนาทุกประการ</p>
+                    <p>ยิ้มเยอะๆ นะ โลกสดใสขึ้นเยอะเลยเวลาเธอยิ้ม :)</p>
+                </div>
+
+                <hr style="opacity: 0.2; margin: 30px auto; width: 50%;">
+                <small class="text-muted" style="font-family: var(--thai-font);">จาก... คนที่อยากเห็นเธอมีความสุข</small>
+            </div>
+        </div>
+    </section>
+
+    <div class="music-player-sticky">
+        <span class="music-icon">🎵</span>
+        <audio id="bgMusic" controls loop style="height: 30px; max-width: 200px;">
+            <source src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <footer>
+        <p class="mb-0 text-muted">เว็บไซต์นี้พัฒนาภายใต้ &copy; 2025 sukollapat.com</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        // =========================================
+        // ส่วนป้องกัน (Deterrents)
+        // =========================================
+        
+        // ป้องกันการคลิกขวา (เสริมจากใน tag body)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // ป้องกันปุ่มลัด F12, Ctrl+Shift+I, Ctrl+U ฯลฯ
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) { // F12
+               return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { // Ctrl+Shift+I
+               return false;
+            }
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { // Ctrl+Shift+J
+               return false;
+            }
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { // Ctrl+U (View Source)
+               return false;
+            }
+        }
+
+        // =========================================
+        // ฟังก์ชันการทำงานหลัก
+        // =========================================
+
+        // 1. ตั้งค่าระดับเสียงเริ่มต้นของเพลง (ถ้ามีไฟล์เพลง)
+        const bgMusic = document.getElementById('bgMusic');
+        bgMusic.volume = 0.4; // ระดับเสียง 40%
+
+        // 2. Confetti Animation Function (พลุกระดาษ)
+        function celebrate() {
+            // เล่นเพลงเมื่อกดปุ่มนี้ด้วย (ถ้ายังไม่ได้เล่น)
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("ต้องให้ผู้ใช้กดเล่นเพลงเองครั้งแรก"));
+            }
+
+            var duration = 3000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                // ปล่อยพลุจากซ้ายและขวา
+                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ff6b6b', '#fca5a5', '#ffd166'] });
+                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ff6b6b', '#fca5a5', '#ffd166'] });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
+        // 3. Open Gift Function (เปิดกล่องของขวัญ)
+        function openGift() {
+            const giftBox = document.getElementById('giftBox');
+            const message = document.getElementById('secretMessage');
+
+            giftBox.style.transform = "scale(0) rotate(360deg)";
+            giftBox.style.opacity = "0";
+            
+            setTimeout(() => {
+                giftBox.style.display = 'none';
+                message.classList.remove('d-none');
+                // เพิ่ม class อนิเมชั่นให้ข้อความเด้งขึ้นมา
+                message.classList.add('fade-up-element', 'is-visible');
+                
+                confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 }, gravity: 1.2 });
+            }, 500);
+        }
+
+        // 4. Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 5. Scroll Animations (Intersection Observer)
+        // ตรวจจับว่า element เลื่อนมาอยู่ในจอหรือยัง ถ้าใช่ ให้เติม class 'is-visible'
+        const fadeUpElements = document.querySelectorAll('.fade-up-element');
+
+        const observerOptions = {
+            threshold: 0.2 // แสดงผลเมื่อ element โผล่มา 20% ของพื้นที่
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // หยุดตรวจจับเมื่อแสดงผลแล้ว
+                }
+            });
+        }, observerOptions);
+
+        fadeUpElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
